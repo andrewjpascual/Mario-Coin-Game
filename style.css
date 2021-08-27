@@ -21,14 +21,20 @@
     left: 100px;
 }
 
-#block {
+#blocks {
+    width: 300px;
+    top: 500px;
+    display: flex;
+    position: relative;
+    animation: slide 1.25s infinite linear;
+
+}
+
+#block1, #block2{
+    background-color: black;
     width: 100px;
     height: 100px;
-    top: 500px;
-    background-color: black;
     position: relative;
-    animation: slide 3s infinite linear;
-
 }
 
 #left, #right {

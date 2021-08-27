@@ -22,16 +22,21 @@ document.addEventListener("keydown", event => {
     if(event.key === "ArrowRight") {moveRight();}
 })
 
-var block = document.getElementById("block");
+var blocks = document.getElementById("blocks");
+var block1 = document.getElementById("block1");
+var block2 = document.getElementById("block2");
 var character = document.getElementById("character");
 var counter = 0;
 
 var counterSpan = document.getElementById("counter");
 
-block.addEventListener('animationiteration', () =>  {
-    var random = Math.floor(Math.random() * 3);
-    left = random * 100;
-    block.style.left = left + "px";
+blocks.addEventListener('animationiteration', () =>  {
+    var random1 = Math.floor(Math.random() * 3);
+    let left1 = random1 * 100;
+    block1.style.left = left1 + "px";
+    var random2 = Math.floor(Math.random() * 3);
+    let left2 = (random2-1) * 100;
+    block2.style.left = left2 + "px";
     counterSpan.innerHTML = "Points: ".concat(counter+1);
     counter++;
     
@@ -41,19 +46,16 @@ block.addEventListener('animationiteration', () =>  {
 setInterval(function(){
     var characterLeft = 
     parseInt(window.getComputedStyle(character).getPropertyValue("left"));
-    var blockLeft =
-    parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-    var blockTop = 
-    parseInt(window.getComputedStyle(block).getPropertyValue("top"));
-    
-
-    if(characterLeft == blockLeft && blockTop < 500 && blockTop > 300) {
+    var block1Left = parseInt(window.getComputedStyle(block1).getPropertyValue("left"));
+    var block2Left = parseInt(window.getComputedStyle(block2).getPropertyValue("left"));
+    var blocksTop = parseInt(window.getComputedStyle(blocks).getPropertyValue("top"));
+    if((characterLeft==block1Left||characterLeft==block2Left+100) && blocksTop<500 && blocksTop>300) {
         alert("Game over. Score: " + counter);
-        block.style.animation = "none";
+        blocks.style.animation = "none";
         location.reload();
     }
 
-}, 1);
+}, 10);
 
 
 
