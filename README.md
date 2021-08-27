@@ -1,2 +1,2 @@
-# EasyGame1
+# Traffic Game
  https://andrewjpascual.github.io/EasyGame1/
