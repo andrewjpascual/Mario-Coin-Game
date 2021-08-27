@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: 'gamefont';
-    src: url(fonts/ka1.TTF);
+    src: url(fonts/ka1.ttf);
   
   }
 
@@ -69,7 +69,9 @@
 }
 
 .title {
+    padding: 1em;
     font-family: gamefont;
+    color: rgb(182, 35, 35);
     text-align: center;
     margin-top: 1rem;
     margin-bottom: 1rem;

@@ -18,8 +18,8 @@ function moveRight() {
 }
 
 document.addEventListener("keydown", event => {
-    if(event.key === "ArrowLeft") {moveLeft();}
-    if(event.key === "ArrowRight") {moveRight();}
+    if(event.key === "ArrowLeft" || event.key === 'a' ) {moveLeft();}
+    if(event.key === "ArrowRight" || event.key === 'd') {moveRight();}
 })
 
 var blocks = document.getElementById("blocks");
