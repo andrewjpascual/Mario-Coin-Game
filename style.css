@@ -1,7 +1,15 @@
 *{
     padding: 0;
     margin: 0;
+    
 }
+
+@font-face {
+    font-family: 'gamefont';
+    src: url(fonts/ka1.TTF);
+  
+  }
+
 
 #game {
     width: 300px;
@@ -9,13 +17,17 @@
     border: 1px solid black;
     margin: auto;
     box-sizing: border-box;
+    background: url(mariobg1.jpg);
+    background-size: cover;
     overflow: hidden; 
 }
 
 #character {
     width: 100px;
     height: 100px;
-    background-color: red;
+    background: url(8x2.png);
+    background-size: cover;
+    
     position: relative;
     top:300px;
     left: 100px;
@@ -24,6 +36,7 @@
 #blocks {
     width: 300px;
     top: 500px;
+    
     display: flex;
     position: relative;
     animation: slide 1.2s infinite linear;
@@ -31,7 +44,9 @@
 }
 
 #block1, #block2{
-    background-color: black;
+    background-color: white;
+    background: url(newthrowm.png);
+    background-size: auto 100%;
     width: 100px;
     height: 100px;
     position: relative;
@@ -54,6 +69,7 @@
 }
 
 .title {
+    font-family: gamefont;
     text-align: center;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -81,6 +97,8 @@ p{
     animation-delay: 600ms;
     border-radius: 50%;
     background-color: gold;
+    background: url(newcoin.png);
+    background-size: cover;
 }
 @keyframes coinSlide{
     0%{top:-300px};
