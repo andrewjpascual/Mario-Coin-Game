@@ -39,17 +39,16 @@ blocks.addEventListener('animationiteration', () =>  {
     var random2 = Math.floor(Math.random() * 3);
     let left2 = (random2-1) * 100;
     block2.style.left = left2 + "px";
-    counterSpan.innerHTML = "Points: ".concat(counter+1);
-    counter++;
     
+    counter++;
+    counterSpan.innerHTML = "Points: ".concat(counter);
 
 });
 
 
-var counted = 0;
+
 coin.addEventListener('animationiteration', () => {
     coin.style.visibility = "visible";
-    counted = 0;
     var random3 = Math.floor(Math.random() * 3);
     let left3 = (random3) * 100;
     coin.style.left = left3 + "px";
@@ -61,26 +60,27 @@ setInterval(function(){
 
     var coinLeft = parseInt(window.getComputedStyle(coin).getPropertyValue("left"));
     var coinTop = parseInt(window.getComputedStyle(coin).getPropertyValue("top"));
-    if(characterLeft==coinLeft && coinTop<400 && coinTop>200 && counted==0){
+
+    
+    if(characterLeft==coinLeft && coinTop<400 && coinTop>200){
         counter++;
-        counterSpan.innerHTML = "Points: ".concat(counter+1);
+        counterSpan.innerHTML = "Points: ".concat(counter);
         coin.style.visibility = "hidden";
         counted++;
+           
     }
 
     var block1Left = parseInt(window.getComputedStyle(block1).getPropertyValue("left"));
     var block2Left = parseInt(window.getComputedStyle(block2).getPropertyValue("left"));
     var blocksTop = parseInt(window.getComputedStyle(blocks).getPropertyValue("top"));
     if((characterLeft==block1Left||characterLeft==block2Left+100) && blocksTop<500 && blocksTop>300) {
-        alert("Game over. Score: " + counter);
+        alert("Game over. Score: " + (counter));
         coin.style.animation = "none";
         blocks.style.animation = "none";
         location.reload();
     }
 
 }, 10);
-
-
 
 document.getElementById("left").addEventListener("touchstart",moveLeft);
 document.getElementById("right").addEventListener("touchstart", moveRight);

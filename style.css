@@ -26,7 +26,7 @@
     top: 500px;
     display: flex;
     position: relative;
-    animation: slide 1s infinite linear;
+    animation: slide 1.2s infinite linear;
 
 }
 
@@ -77,12 +77,12 @@ p{
     height: 100px;
     top: 500px;
     position: relative;
-    animation: coinSlide 1s infinite linear;
+    animation: coinSlide 1.2s infinite linear;
     animation-delay: 600ms;
     border-radius: 50%;
     background-color: gold;
 }
 @keyframes coinSlide{
-    0%{top:-200px};
+    0%{top:-300px};
     100%{top:400px};
 }
