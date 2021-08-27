@@ -26,9 +26,11 @@ var blocks = document.getElementById("blocks");
 var block1 = document.getElementById("block1");
 var block2 = document.getElementById("block2");
 var character = document.getElementById("character");
+var coin = document.getElementById("coin");
 var counter = 0;
 
 var counterSpan = document.getElementById("counter");
+
 
 blocks.addEventListener('animationiteration', () =>  {
     var random1 = Math.floor(Math.random() * 3);
@@ -43,14 +45,35 @@ blocks.addEventListener('animationiteration', () =>  {
 
 });
 
+
+var counted = 0;
+coin.addEventListener('animationiteration', () => {
+    coin.style.visibility = "visible";
+    counted = 0;
+    var random3 = Math.floor(Math.random() * 3);
+    let left3 = (random3) * 100;
+    coin.style.left = left3 + "px";
+});
+
+
 setInterval(function(){
-    var characterLeft = 
-    parseInt(window.getComputedStyle(character).getPropertyValue("left"));
+    var characterLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
+
+    var coinLeft = parseInt(window.getComputedStyle(coin).getPropertyValue("left"));
+    var coinTop = parseInt(window.getComputedStyle(coin).getPropertyValue("top"));
+    if(characterLeft==coinLeft && coinTop<400 && coinTop>200 && counted==0){
+        counter++;
+        counterSpan.innerHTML = "Points: ".concat(counter+1);
+        coin.style.visibility = "hidden";
+        counted++;
+    }
+
     var block1Left = parseInt(window.getComputedStyle(block1).getPropertyValue("left"));
     var block2Left = parseInt(window.getComputedStyle(block2).getPropertyValue("left"));
     var blocksTop = parseInt(window.getComputedStyle(blocks).getPropertyValue("top"));
     if((characterLeft==block1Left||characterLeft==block2Left+100) && blocksTop<500 && blocksTop>300) {
         alert("Game over. Score: " + counter);
+        coin.style.animation = "none";
         blocks.style.animation = "none";
         location.reload();
     }
